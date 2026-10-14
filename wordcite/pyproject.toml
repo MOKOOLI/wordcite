@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wordcite"
+version = "0.1.0"
+description = "Automatic citations and bibliographies in Word (.docx) files: APA, Vancouver, Harvard, IEEE and 23 more styles, with Persian support."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = ["python-docx>=1.0"]
+keywords = ["citation", "bibliography", "docx", "word", "apa", "vancouver", "harvard", "ieee", "persian"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Text Processing :: Markup",
+  "Intended Audience :: Science/Research",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff"]
+
+[project.scripts]
+wordcite = "wordcite.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["wordcite*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 120
